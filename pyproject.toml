@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "adventofcodeutils"
+version = "0.1.0"
+description = "This repository contains some utils used by my advent of code projects. "
+authors = ["Roel Adriaans <roel@adriaans.org>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+attrs = "^23.1.0"
+
+[tool.poetry.dev-dependencies]
+black = "^23.7.0"
+pytest = "^7.4.0"
+pytest-cov = "^4.1.0"
+pytest-xdist = "^3.3.1"
+python-dotenv = "^1.0.0"
+tox = "^4.6.4"
+pre-commit = "^3.3.3"
+isort = "^5.12.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

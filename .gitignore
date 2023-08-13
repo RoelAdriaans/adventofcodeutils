@@ -1,3 +1,5 @@
+# This is a lib, so we don't need the lockfile.
+poetry.lock
 
 # Created by https://www.gitignore.io/api/test,python
 # Edit at https://www.gitignore.io/?templates=test,python

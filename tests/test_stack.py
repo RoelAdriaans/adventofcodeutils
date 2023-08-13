@@ -20,6 +20,7 @@ def test_stack():
 
     # We should have some data now
     assert not st.empty
+    assert len(st) == 3
 
     # Let's look at the data
     assert repr(st) == repr([1, 2, 3])
@@ -31,6 +32,7 @@ def test_stack():
 
     # Should be empty again
     assert st.empty
+    assert len(st) == 0
     assert repr(st) == repr([])
 
     with pytest.raises(IndexError):

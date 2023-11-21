@@ -26,7 +26,8 @@ class Search(ABC):
         initial: T,
         goal_test: Callable[[T], bool],
         successors: Callable[[T], list[T]],
-    ) -> Node[T] | None:
+        explore_all: bool = False,
+    ) -> Node[T] | set[Node[T]] | None:
         # frontier is where we've yet to go
         # @TODO This is ugly, the base class has knowledge of
         #   the container implementation
@@ -36,14 +37,23 @@ class Search(ABC):
         # explored is where we've been
         explored: set[T] = {initial}
 
+        # All paths
+        all_paths: set[T] = set()
+
         # keep going while there is more to explore
         while not frontier.empty:
             current_node: Node[T] = frontier.pop()
             current_state: T = current_node.state
 
-            # if we found the goal, we're done
             if goal_test(current_state):
-                return current_node
+                if not explore_all:
+                    # if we found the goal, we're done
+                    return current_node
+                else:
+                    # All paths are explored! Add this path and continue on
+                    # If the goal is searched, do not find the children of the goal
+                    all_paths.add(current_node)
+                    continue
 
             # check where we can go next and haven't explored
             for child in successors(current_state):
@@ -53,8 +63,12 @@ class Search(ABC):
                 explored.add(child)
                 frontier.push(Node(child, current_node))
 
-        # went through everything and never found goal
-        return None
+        if explore_all:
+            # Return all the pats we have found. Could be an empty set
+            return all_paths
+        else:
+            # went through everything and never found goal
+            return None
 
 
 class DFS(Search):

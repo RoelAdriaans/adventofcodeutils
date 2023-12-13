@@ -58,3 +58,13 @@ def test_invalid_together():
         xy + xyz
 
     assert xy != xyz
+
+
+def test_xynrpoint():
+    xy1 = point.XYNRPoint(1, 2, 1)
+    xy2 = point.XYNRPoint(1, 2, 3)
+
+    assert xy1.nr == 1
+    assert xy2.nr == 3
+    # Equality is not on the number
+    assert xy1 == xy2

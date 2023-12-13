@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "adventofcodeutils"
-version = "0.3.0"
+version = "0.4.0"
 description = "This repository contains some utils used by my advent of code projects. "
 authors = ["Roel Adriaans <roel@adriaans.org>"]
 readme = "README.md"

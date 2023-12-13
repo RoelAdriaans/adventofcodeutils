@@ -40,3 +40,8 @@ class XYPoint:
 
     def distance(self, other):
         return abs(self.x - other.x) + abs(self.y - other.y)
+
+
+@attrs.define
+class XYNRPoint(XYPoint):
+    nr: int = attrs.field(eq=False)

@@ -1,3 +1,5 @@
+from math import dist
+
 import attrs
 
 
@@ -20,6 +22,9 @@ class XYZPoint:
 
     def distance(self, other):
         return abs(self.x - other.x) + abs(self.y - other.y) + abs(self.z - other.z)
+
+    def euclidean_dist(self, other):
+        return dist([self.x, self.y, self.z], [other.x, other.y, other.z])
 
 
 @attrs.define

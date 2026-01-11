@@ -1,6 +1,7 @@
 import pytest
 
 from adventofcodeutils import point
+from random import shuffle
 
 
 def test_xyzpoint():
@@ -28,6 +29,16 @@ def test_xyzdistance():
     p2 = point.XYZPoint(-92, -2380, -20)
 
     assert p1.distance(p2) == 3621
+
+
+def test_xyzsorted():
+    p1 = point.XYZPoint(162, 817, 812)
+    p2 = point.XYZPoint(425, 690, 689)
+    p3 = point.XYZPoint(162, 817, 812)
+    p4 = point.XYZPoint(431, 825, 988)
+
+    test_list = [p2, p1, p4, p3]
+    assert sorted(test_list, reverse=True) == [p1, p2, p3, p4]
 
 
 def test_xypoint():

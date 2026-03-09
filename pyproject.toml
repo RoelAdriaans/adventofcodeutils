@@ -10,7 +10,7 @@ python = "^3.11"
 attrs = "^25.1.0"
 
 [tool.poetry.dev-dependencies]
-black = "^25.1.0"
+black = "^26.3.0"
 pytest = "^9.0.2"
 pytest-cov = "^7.0.0"
 pytest-xdist = "^3.6.1"

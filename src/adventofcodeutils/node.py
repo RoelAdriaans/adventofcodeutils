@@ -1,11 +1,7 @@
 from __future__ import annotations
 
-from typing import Generic, TypeVar
 
-T = TypeVar("T")
-
-
-class Node(Generic[T]):
+class Node[T]:
     def __init__(
         self,
         state: T,

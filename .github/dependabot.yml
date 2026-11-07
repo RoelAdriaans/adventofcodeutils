@@ -5,11 +5,19 @@
 version: 2
 updates:
 
-- package-ecosystem: pip
+- package-ecosystem: uv
   directory: "/"
   labels:
     - "dependencies"
     - "python"
   schedule:
-    interval: daily
+    interval: weekly
     time: "04:00"
+
+- package-ecosystem: github-actions
+  directory: "/"
+  labels:
+    - "dependencies"
+    - "github-actions"
+  schedule:
+    interval: weekly

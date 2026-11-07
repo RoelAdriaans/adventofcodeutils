@@ -1,12 +1,13 @@
 from __future__ import annotations
 
 from heapq import heappop, heappush
-from typing import Generic, TypeVar
+from typing import TYPE_CHECKING
 
-T = TypeVar("T")
+if TYPE_CHECKING:
+    from _typeshed import SupportsRichComparison
 
 
-class PriorityQueue(Generic[T]):
+class PriorityQueue[T: SupportsRichComparison]:
     def __init__(self) -> None:
         self._container: list[T] = []
 

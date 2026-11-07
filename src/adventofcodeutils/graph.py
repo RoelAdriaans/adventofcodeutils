@@ -1,14 +1,10 @@
 from collections import defaultdict
 from collections.abc import Iterator
 from dataclasses import dataclass
-from typing import Generic, TypeVar
-
-# The type of the nodes
-V = TypeVar("V")
 
 
 @dataclass
-class Edge(Generic[V]):
+class Edge[V]:
     u: V
     v: V
 
@@ -19,7 +15,7 @@ class Edge(Generic[V]):
         return hash((self.u, self.v))
 
 
-class Graph(Generic[V]):
+class Graph[V]:
     """
     Very simple graph, enough for advent of code.
 

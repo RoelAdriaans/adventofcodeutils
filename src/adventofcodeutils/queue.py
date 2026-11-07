@@ -1,12 +1,9 @@
 from __future__ import annotations
 
 from collections import deque
-from typing import Generic, TypeVar
-
-T = TypeVar("T")
 
 
-class Queue(Generic[T]):
+class Queue[T]:
     def __init__(self) -> None:
         self._container: deque[T] = deque()
 

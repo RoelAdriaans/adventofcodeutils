@@ -4,10 +4,22 @@ version = "0.5.0"
 description = "This repository contains some utils used by my advent of code projects. "
 authors = [{ name = "Roel Adriaans", email = "roel@adriaans.org" }]
 readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["advent-of-code", "utils"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.14",
+    "Typing :: Typed",
+]
 requires-python = ">=3.14"
 dependencies = [
     "attrs>=26.1.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/RoelAdriaans/adventofcodeutils"
+Issues = "https://github.com/RoelAdriaans/adventofcodeutils/issues"
 
 [dependency-groups]
 dev = [
@@ -15,7 +27,7 @@ dev = [
     "pytest-cov>=7.1.0",
     "pytest-xdist>=3.8.0",
     "python-dotenv>=1.2.4",
-    "tox>=4.67.13",
+    "mypy>=1.0",
     "pre-commit>=4.7.0",
     "ruff>=0.17.4",
 ]
@@ -38,3 +50,29 @@ select = ["E", "W", "F", "I", "N", "UP", "C90"]
 
 [tool.ruff.lint.mccabe]
 max-complexity = 16
+
+[tool.pytest.ini_options]
+# Makes all warnings be fatal
+filterwarnings = ["error"]
+junit_family = "xunit1"
+testpaths = ["tests"]
+addopts = "--cov --cov-report=term --cov-report=html --cov-report=xml"
+
+[tool.coverage.run]
+branch = true
+omit = ["*/__init__.py"]
+source = ["adventofcodeutils", "tests"]
+
+[tool.coverage.report]
+fail_under = 70
+exclude_lines = [
+    # Have to re-enable the standard pragma
+    "pragma: no cover",
+    # Don't complain if tests don't hit defensive assertion code:
+    "raise NotImplementedError",
+]
+
+[tool.mypy]
+follow_imports = "silent"
+check_untyped_defs = true
+linecount_report = ".typecov/report"

@@ -19,3 +19,10 @@ repos:
     - id: check-merge-conflict
     - id: debug-statements
       language_version: python3
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.20.0
+    hooks:
+    - id: mypy
+      files: ^src/
+      additional_dependencies: [attrs]

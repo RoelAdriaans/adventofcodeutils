@@ -38,7 +38,7 @@ class Search(ABC):
         explored: set[T] = {initial}
 
         # All paths
-        all_paths: set[T] = set()
+        all_paths: set[Node[T]] = set()
 
         # keep going while there is more to explore
         while not frontier.empty:

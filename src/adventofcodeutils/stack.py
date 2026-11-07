@@ -1,11 +1,7 @@
 from __future__ import annotations
 
-from typing import Generic, TypeVar
 
-T = TypeVar("T")
-
-
-class Stack(Generic[T]):
+class Stack[T]:
     def __init__(self) -> None:
         self._container: list[T] = []
 

@@ -1,25 +1,40 @@
-[tool.poetry]
+[project]
 name = "adventofcodeutils"
 version = "0.4.1"
 description = "This repository contains some utils used by my advent of code projects. "
-authors = ["Roel Adriaans <roel@adriaans.org>"]
+authors = [{ name = "Roel Adriaans", email = "roel@adriaans.org" }]
 readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "attrs>=26.1.0",
+]
 
-[tool.poetry.dependencies]
-python = "^3.11"
-attrs = "^25.1.0"
-
-[tool.poetry.dev-dependencies]
-black = "^26.3.0"
-pytest = "^9.0.3"
-pytest-cov = "^7.0.0"
-pytest-xdist = "^3.6.1"
-python-dotenv = "^1.0.1"
-tox = "^4.21.2"
-pre-commit = "^4.0.0"
-isort = "^8.0.1"
-
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "pytest-cov>=7.1.0",
+    "pytest-xdist>=3.8.0",
+    "python-dotenv>=1.2.4",
+    "tox>=4.67.13",
+    "pre-commit>=4.7.0",
+    "ruff>=0.17.4",
+]
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/adventofcodeutils"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py314"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+# pycodestyle, pyflakes, isort, pep8-naming, pyupgrade, mccabe
+select = ["E", "W", "F", "I", "N", "UP", "C90"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 16

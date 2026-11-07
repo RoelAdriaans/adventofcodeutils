@@ -1,6 +1,6 @@
 [project]
 name = "adventofcodeutils"
-version = "0.4.1"
+version = "0.5.0"
 description = "This repository contains some utils used by my advent of code projects. "
 authors = [{ name = "Roel Adriaans", email = "roel@adriaans.org" }]
 readme = "README.md"
